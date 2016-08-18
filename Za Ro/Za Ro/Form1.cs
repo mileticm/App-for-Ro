@@ -16,5 +16,12 @@ namespace Za_Ro
         {
             InitializeComponent();
         }
+
+        private void btnPrikaziPoruku_Click(object sender, EventArgs e)
+        {
+            lblLjubavnaPoruka.Text = "Kad pripadam tebi, tad konačno potpuno pripadam i samome sebi";
+            btnPrikaziPoruku.Enabled = false;
+            lblSutra.Visible = true;
+        }
     }
 }
