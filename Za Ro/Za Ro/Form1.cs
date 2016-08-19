@@ -19,8 +19,16 @@ namespace Za_Ro
 
         private void btnPrikaziPoruku_Click(object sender, EventArgs e)
         {
-            lblLjubavnaPoruka.Text = "Kad pripadam tebi, tad konačno potpuno pripadam i samome sebi";
             btnPrikaziPoruku.Enabled = false;
+            List<volim> listaPoruka = null;
+            using (var db = new voljenjeEntities())
+            {
+                listaPoruka = new List<volim>(db.volim.ToList());
+            }
+            foreach (volim v in listaPoruka)
+            {
+                if (v.datum == DateTime.Now.Date) lblLjubavnaPoruka.Text = v.poruka.ToString();
+            }
             lblSutra.Visible = true;
         }
     }
